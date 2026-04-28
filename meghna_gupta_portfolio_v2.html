@@ -1,0 +1,177 @@
+
+<style>
+:root{--bg:#0A0F1E;--surf:#111827;--surf2:#1C2537;--blue:#3B82F6;--blueb:#60A5FA;--cyan:#22D3EE;--tx:#F1F5F9;--txm:#94A3B8;--txd:#64748B;--bdr:#1E293B;--bdr2:#2D3F5A;--grn:#10B981;--pur:#A78BFA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6}
+nav{background:rgba(10,15,30,0.9);border-bottom:1px solid var(--bdr);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.nav-logo{font-family:monospace;font-size:13px;color:var(--blueb)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-size:12px;color:var(--txm);text-decoration:none;cursor:pointer}
+.nav-links a:hover{color:var(--blueb)}
+.hero{padding:64px 24px 48px;max-width:900px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:100px;padding:5px 14px;font-family:monospace;font-size:11px;color:var(--blueb);margin-bottom:24px}
+.dot{width:6px;height:6px;background:var(--grn);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+h1{font-size:clamp(40px,6vw,72px);font-weight:900;line-height:1.0;margin-bottom:12px}
+h1 span{background:linear-gradient(135deg,var(--blueb),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:17px;color:var(--txm);margin-bottom:16px}
+.hero-desc{max-width:560px;font-size:14px;color:var(--txd);line-height:1.8;margin-bottom:32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;border:none}
+.btn-p{background:var(--blue);color:white}
+.btn-p:hover{background:var(--blueb)}
+.btn-o{background:transparent;border:1px solid var(--bdr2);color:var(--txm)}
+.btn-o:hover{border-color:var(--blue);color:var(--tx)}
+.stats{display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--bdr);flex-wrap:wrap}
+.stat-n{font-size:32px;font-weight:900;color:var(--blueb);line-height:1}
+.stat-l{font-size:12px;color:var(--txd);margin-top:4px}
+section{max-width:900px;margin:0 auto;padding:48px 24px 32px}
+.sec-title{font-size:28px;font-weight:900;margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--txd);margin-bottom:36px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.sk{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px 20px;transition:all .2s}
+.sk:hover{border-color:var(--blue);transform:translateY(-2px)}
+.sk-icon{font-size:22px;margin-bottom:10px}
+.sk-name{font-weight:600;font-size:13px;color:var(--tx);margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);color:var(--blueb);font-size:10px;font-family:monospace;padding:2px 8px;border-radius:4px}
+.tag.g{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:var(--grn)}
+.tag.p{background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.2);color:var(--pur)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.pc{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:24px;transition:all .3s;position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:0;transition:opacity .3s}
+.pc:hover{border-color:var(--blue);transform:translateY(-3px)}
+.pc:hover::before{opacity:1}
+.pe{font-size:28px;margin-bottom:14px}
+.pn{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:8px}
+.pd{font-size:13px;color:var(--txd);line-height:1.6;margin-bottom:12px}
+.pi{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--grn);margin-bottom:12px;font-weight:500}
+.tl{padding-left:24px;position:relative}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),var(--cyan),transparent)}
+.ti{position:relative;margin-bottom:32px;background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:24px;transition:border-color .2s}
+.ti:hover{border-color:var(--bdr2)}
+.ti::before{content:'';position:absolute;left:-32px;top:24px;width:8px;height:8px;background:var(--blue);border:2px solid var(--bg);border-radius:50%}
+.exp-hd{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.exp-role{font-size:18px;font-weight:700;color:var(--tx)}
+.exp-co{font-size:13px;color:var(--blueb);margin-top:3px}
+.exp-dt{font-family:monospace;font-size:11px;color:var(--txd);background:var(--surf2);border:1px solid var(--bdr);padding:3px 10px;border-radius:5px;white-space:nowrap}
+.ebl{list-style:none;display:flex;flex-direction:column;gap:7px}
+.ebl li{font-size:13px;color:var(--txd);padding-left:16px;position:relative;line-height:1.6}
+.ebl li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:11px}
+.contact-wrap{text-align:center;padding:48px 24px 64px;max-width:900px;margin:0 auto}
+.cc{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:48px 32px;max-width:580px;margin:0 auto}
+.cl{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:0 24px}
+footer{text-align:center;padding:24px;font-family:monospace;font-size:11px;color:var(--txd);border-top:1px solid var(--bdr)}
+</style>
+
+<nav>
+  <div class="nav-logo">meghna.gupta( )</div>
+  <ul class="nav-links">
+    <li><a onclick="document.getElementById('s').scrollIntoView({behavior:'smooth'})">Skills</a></li>
+    <li><a onclick="document.getElementById('p').scrollIntoView({behavior:'smooth'})">Projects</a></li>
+    <li><a onclick="document.getElementById('e').scrollIntoView({behavior:'smooth'})">Experience</a></li>
+    <li><a onclick="document.getElementById('c').scrollIntoView({behavior:'smooth'})">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag"><span class="dot"></span> Python Automation Engineer · Delhi, India</div>
+  <h1>Meghna<br><span>Gupta</span></h1>
+  <p class="hero-sub">Python Automation Engineer · AI Voice Bot Developer · RPA Specialist</p>
+  <p class="hero-desc">I build automation systems that eliminate manual work completely — from reverse-engineering internal APIs on insurance portals to deploying AI voice bots that handle real calls. 2+ years of shipping production automation.</p>
+  <div class="btns">
+    <a class="btn btn-p" onclick="document.getElementById('p').scrollIntoView({behavior:'smooth'})">View My Work →</a>
+    <a class="btn btn-o" href="mailto:meghnagupta1198@gmail.com">✉ Get in Touch</a>
+  </div>
+  <div class="stats">
+    <div><div class="stat-n">7+</div><div class="stat-l">Production Automations</div></div>
+    <div><div class="stat-n">2+</div><div class="stat-l">Years Experience</div></div>
+    <div><div class="stat-n">2</div><div class="stat-l">AI Voice Bots</div></div>
+    <div><div class="stat-n">0</div><div class="stat-l">Manual Steps Left</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="s">
+  <p class="sec-title">Technical Stack</p>
+  <p class="sec-sub">Tools and platforms I work with every day</p>
+  <div class="skills-grid">
+    <div class="sk"><div class="sk-icon">🐍</div><div class="sk-name">Core Python</div><div class="tags"><span class="tag">Python 3</span><span class="tag">OOP</span><span class="tag">Multithreading</span><span class="tag">Logging</span></div></div>
+    <div class="sk"><div class="sk-icon">🤖</div><div class="sk-name">Automation & RPA</div><div class="tags"><span class="tag">Selenium</span><span class="tag">API Automation</span><span class="tag">Internal API Extraction</span><span class="tag">Web Scraping</span></div></div>
+    <div class="sk"><div class="sk-icon">🎙️</div><div class="sk-name">AI Voice Bots</div><div class="tags"><span class="tag p">OpenAI GPT</span><span class="tag p">VAPI</span><span class="tag p">Retell AI</span><span class="tag">STT/TTS</span></div></div>
+    <div class="sk"><div class="sk-icon">⚙️</div><div class="sk-name">Backend & APIs</div><div class="tags"><span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">MySQL</span></div></div>
+    <div class="sk"><div class="sk-icon">📊</div><div class="sk-name">Data & Dashboards</div><div class="tags"><span class="tag g">Pandas</span><span class="tag g">NumPy</span><span class="tag g">Log Analysis</span><span class="tag g">Monitoring</span></div></div>
+    <div class="sk"><div class="sk-icon">🐧</div><div class="sk-name">Systems & Tools</div><div class="tags"><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">Tkinter</span></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="p">
+  <p class="sec-title">Projects</p>
+  <p class="sec-sub">Production automation systems shipped at Onsure</p>
+  <div class="proj-grid">
+    <div class="pc"><div class="pe">🎙️</div><div class="pn">AI Voice Bot — Inbound & Outbound</div><div class="pd">Fully automated calling for healthcare — patient intake, insurance pre-auth calls, appointment reminders. No human agent needed for routine workflows.</div><div class="pi">↑ Eliminated manual calling for routine workflows</div><div class="tags"><span class="tag p">OpenAI GPT</span><span class="tag p">VAPI</span><span class="tag p">Retell AI</span><span class="tag">Python</span></div></div>
+    <div class="pc"><div class="pe">🔐</div><div class="pn">Auth Process Automation</div><div class="pd">End-to-end automation of insurance authorization submissions — from form filling to status tracking using Selenium and extracted internal APIs.</div><div class="pi">↓ ~80% reduction in manual auth processing</div><div class="tags"><span class="tag">Selenium</span><span class="tag">Internal API</span><span class="tag">Python</span></div></div>
+    <div class="pc"><div class="pe">📠</div><div class="pn">Fax Process Automation</div><div class="pd">Automated sending, receiving, and document tracking for healthcare fax workflows — a historically all-manual process made fully hands-off.</div><div class="pi">↑ 100% fax tracking with zero manual effort</div><div class="tags"><span class="tag">Selenium</span><span class="tag">Python</span><span class="tag">API</span></div></div>
+    <div class="pc"><div class="pe">🏥</div><div class="pn">Claim Status & Referral Automation</div><div class="pd">Real-time claim status checking and patient referral submissions across multiple payer portals with built-in state management.</div><div class="pi">↓ Manual follow-up cut by ~80%</div><div class="tags"><span class="tag">Selenium</span><span class="tag">Multi-portal</span><span class="tag">Python</span></div></div>
+    <div class="pc"><div class="pe">🔍</div><div class="pn">Internal API Extraction Engine</div><div class="pd">Python scripts to reverse-engineer undocumented internal APIs from insurance portals — enabling automation where no official API exists.</div><div class="pi">↑ Unlocked 4+ automation workflows</div><div class="tags"><span class="tag">Python</span><span class="tag">Network Inspection</span><span class="tag">Selenium</span></div></div>
+    <div class="pc"><div class="pe">📈</div><div class="pn">Automation Status Dashboards</div><div class="pd">Real-time dashboards showing pipeline health — volume processed, success/failure rates, completion % per automation type.</div><div class="pi">↑ Full operational visibility in real time</div><div class="tags"><span class="tag g">Flask</span><span class="tag g">Pandas</span><span class="tag g">Python</span></div></div>
+    <div class="pc"><div class="pe">📋</div><div class="pn">CA Audit Automation Platform</div><div class="pd">In-progress: end-to-end audit automation — bookkeeping ingestion → GST/TDS compliance checks → Ind AS validation → report generation.</div><div class="pi">🔨 In active development</div><div class="tags"><span class="tag">Python</span><span class="tag p">OpenAI</span><span class="tag">Selenium</span><span class="tag">GST API</span></div></div>
+    <div class="pc"><div class="pe">🛡️</div><div class="pn">Authentication Log Analyzer</div><div class="pd">Regex/Pandas pipeline parsing auth logs at scale to detect brute-force and suspicious sessions — structured security reports for admins.</div><div class="pi">↑ Proactive security threat detection</div><div class="tags"><span class="tag g">Python</span><span class="tag g">Pandas</span><span class="tag">Regex</span><span class="tag">Linux</span></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="e">
+  <p class="sec-title">Experience</p>
+  <p class="sec-sub">Where I've shipped production systems</p>
+  <div class="tl">
+    <div class="ti">
+      <div class="exp-hd">
+        <div><div class="exp-role">Python Automation Engineer</div><div class="exp-co">Onsure Technologies</div></div>
+        <div class="exp-dt">Jun 2025 → Present</div>
+      </div>
+      <ul class="ebl">
+        <li>Built 7+ production automation systems for healthcare insurance — auth, fax, referrals, claim status</li>
+        <li>Reverse-engineered internal APIs from insurance portals using Python network inspection</li>
+        <li>Deployed AI-powered inbound + outbound voice bots using OpenAI GPT, VAPI, and Retell AI</li>
+        <li>Built real-time dashboards for full pipeline monitoring across all running automations</li>
+        <li>Currently building an end-to-end CA Audit Automation platform</li>
+      </ul>
+    </div>
+    <div class="ti">
+      <div class="exp-hd">
+        <div><div class="exp-role">Service Engineer (Python Developer)</div><div class="exp-co">Ally Wiredsoft Solutions — Ministry of Defence</div></div>
+        <div class="exp-dt">Aug 2023 → Jan 2025</div>
+      </div>
+      <ul class="ebl">
+        <li>Developed Python automation scripts for system task management in a defence-grade Linux environment</li>
+        <li>Built Authentication Log Analyzer — Regex/Pandas pipeline detecting suspicious login patterns</li>
+        <li>Built Flask backend services and REST APIs for internal tooling</li>
+        <li>Administered Linux systems; created monitoring dashboards and maintained technical documentation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="contact-wrap" id="c">
+  <p class="sec-title">Let's Build Something</p>
+  <p class="sec-sub">Have an interesting automation problem? I'd love to hear about it.</p>
+  <div class="cc">
+    <div style="font-size:40px;margin-bottom:16px">👋</div>
+    <p style="font-size:14px;color:var(--txm);line-height:1.8">I enjoy taking on challenging automation problems — whether it's a complex portal workflow, an AI voice solution, or something nobody has automated yet. If you have an interesting project, let's talk.</p>
+    <div class="cl">
+      <a class="btn btn-p" href="mailto:meghnagupta1198@gmail.com">✉ meghnagupta1198@gmail.com</a>
+      <a class="btn btn-o" href="https://linkedin.com/in/meghna-gupta-3b4a5a266/" target="_blank">LinkedIn →</a>
+    </div>
+    <p style="margin-top:20px;font-family:monospace;font-size:11px;color:var(--txd)">📞 +91 73794 17832 &nbsp;·&nbsp; 📍 Delhi, India</p>
+  </div>
+</div>
+
+<footer>© 2025 Meghna Gupta &nbsp;·&nbsp; Python Automation Engineer &nbsp;·&nbsp; Delhi, India</footer>
